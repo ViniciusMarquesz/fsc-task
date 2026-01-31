@@ -134,6 +134,7 @@
 
   body {
     font-family: "Poppins", sans-serif;
+    @apply bg-[#f8f8f8];
   }
 
 }

@@ -1,7 +1,9 @@
+import Sidebar from "./components/sidebar";
+
 function App() {
   return (
     <div>
-      <h1 className="mt-2 bg-red-500 p-6">Tailwind funcionando 🚀</h1>
+      <Sidebar />
     </div>
   );
 }
