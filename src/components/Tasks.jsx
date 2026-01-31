@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
+import "./Tasks.css";
 
 function Tasks() {
   const [inputValue, setInputValue] = useState();
