@@ -1,9 +1,7 @@
 function App() {
   return (
     <div>
-      <h1 className="text-red-500 text-4xl font-bold">
-        Tailwind funcionando 🚀
-      </h1>{" "}
+      <h1 className="mt-2 bg-red-500 p-6">Tailwind funcionando 🚀</h1>
     </div>
   );
 }
