@@ -8,6 +8,7 @@ import TasksSeparator from "./TasksSeparator";
 import { useState } from "react";
 import tasksList from "../constants/tasks";
 import TaskItem from "./TaskItem";
+import { toast } from "sonner";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState(tasksList);
@@ -20,6 +21,7 @@ const Tasks = () => {
 
   const handleTaskDeleteClick = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
+    toast.success("Tarefa removida com sucesso!");
   };
 
   const handleTaskCheckboxClick = (taskId) => {
@@ -30,14 +32,17 @@ const Tasks = () => {
       }
 
       if (task.status === "not_started") {
+        toast.success("Tarefa em progresso!");
         return { ...task, status: "in_progress" };
       }
 
       if (task.status === "in_progress") {
+        toast.success("Tarefa concluída!");
         return { ...task, status: "done" };
       }
 
       if (task.status === "done") {
+        toast.success("Tarefa reiniciada!");
         return { ...task, status: "not_started" };
       }
 
