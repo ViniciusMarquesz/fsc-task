@@ -18,6 +18,10 @@ const Tasks = () => {
 
   const eveningTasks = tasks.filter((task) => task.time === "evening");
 
+  const handleTaskDeleteClick = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
   const handleTaskCheckboxClick = (taskId) => {
     // Lógica para lidar com o clique na checkbox da tarefa
     const newTasks = tasks.map((task) => {
@@ -75,7 +79,8 @@ const Tasks = () => {
             <TaskItem
               key={task.id}
               task={task}
-              handleTaskCheckboxClick={handleTaskCheckboxClick}
+              handleCheckboxClick={handleTaskCheckboxClick}
+              handleDeleteClick={handleTaskDeleteClick}
             />
           ))}
         </div>
@@ -87,7 +92,8 @@ const Tasks = () => {
             <TaskItem
               key={task.id}
               task={task}
-              handleTaskCheckboxClick={handleTaskCheckboxClick}
+              handleCheckboxClick={handleTaskCheckboxClick}
+              handleDeleteClick={handleTaskDeleteClick}
             />
           ))}
         </div>
@@ -99,7 +105,8 @@ const Tasks = () => {
             <TaskItem
               key={task.id}
               task={task}
-              handleTaskCheckboxClick={handleTaskCheckboxClick}
+              handleCheckboxClick={handleTaskCheckboxClick}
+              handleDeleteClick={handleTaskDeleteClick}
             />
           ))}
         </div>
