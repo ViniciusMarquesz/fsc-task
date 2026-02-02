@@ -70,7 +70,7 @@ const Tasks = () => {
 
         {/* Botoes */}
         <div className="flex items-center gap-3">
-          <Button variant="secondary">
+          <Button variant="ghost">
             Limpar Tarefas
             <TrashIcon />
           </Button>
@@ -78,7 +78,10 @@ const Tasks = () => {
             Nova Tarefa
             <AddIcon />
           </Button>
-          <AddTaskDialog isOpen={addTaskDialogIsOpen} />
+          <AddTaskDialog
+            isOpen={addTaskDialogIsOpen}
+            handleClose={() => setAddTaskDialogIsOpen(false)}
+          />
         </div>
       </div>
       {/* LISTA DE TAREFAS */}
