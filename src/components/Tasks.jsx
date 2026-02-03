@@ -67,7 +67,7 @@ const Tasks = () => {
       <div className="flex w-full justify-between">
         {/* Titulo */}
         <div>
-          <span className="text-xs font-semibold text-[#00ADB5]">
+          <span className="text-xs font-semibold text-brand-primary">
             Minhas Tarefas
           </span>
           <h2 className="text-sl font-semibold">Minhas tarefas</h2>

@@ -9,7 +9,7 @@ const Input = forwardRef(({ label, errorMessage, ...rest }, ref) => {
       <InputLabel htmlFor={rest.id}>{label}</InputLabel>
 
       <input
-        className="rounded-lg border border-solid border-[#ECECEC] px-4 py-3 outline-[#00ADB5] placeholder:text-sm placeholder:text-[#9A9C9F] focus:border-[#00ADB5]"
+        className="rounded-lg border border-solid border-brand-border px-4 py-3 outline-brand-primary placeholder:text-sm placeholder:text-brand-text-gray focus:border-brand-primary"
         ref={ref}
         {...rest}
       />
