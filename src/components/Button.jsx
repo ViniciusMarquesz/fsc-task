@@ -35,7 +35,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["primary", "ghost", "secondary"]),
   size: PropTypes.oneOf(["small", "large"]),
   className: PropTypes.string,
