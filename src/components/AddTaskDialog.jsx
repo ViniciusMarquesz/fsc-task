@@ -103,7 +103,7 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
                 <Input
                   id="title"
                   label="Título"
-                  placeholder="Insira o ítulo da tarefa"
+                  placeholder="Insira o título da tarefa"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   errorMessage={titleError?.message}
