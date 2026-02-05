@@ -70,7 +70,18 @@ const Tasks = () => {
     setTasks(newTasks);
   };
 
-  const handleAddTaskSubmit = (task) => {
+  const handleAddTaskSubmit = async (task) => {
+    // Chamar API para adicionar tarefa
+    const response = await fetch("http://localhost:3000/tasks", {
+      method: "POST",
+      body: JSON.stringify(task),
+    });
+
+    if (!response.ok) {
+      toast.error("Erro ao adicionar tarefa!");
+      return;
+    }
+
     setTasks([...tasks, task]);
     toast.success("Tarefa adicionada com sucesso!");
   };
