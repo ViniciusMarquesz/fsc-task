@@ -1,0 +1,47 @@
+{
+  "tasks": [
+  {
+    "id": 1,
+    "title": "Estudar FSC",
+    "description": "Estudar para a prova de FSC",
+    "time": "morning",
+    "status": "done"
+  },
+  {
+    "id": 2,
+    "title": "Estudar React",
+    "description": "Estudar para a prova de React",
+    "time": "morning",
+    "status": "done"
+  },
+  {
+    "id": 3,
+    "title": "Estudar TypeScript",
+    "description": "Estudar para a prova de TypeScript",
+    "time": "afternoon",
+    "status": "in_progress"
+  },
+  {
+    "id": 4,
+    "title": "Estudar Next",
+    "description": "Estudar para a prova de Next",
+    "time": "afternoon",
+    "status": "in_progress"
+  },
+  {
+    "id": 5,
+    "title": "Descansar",
+    "description": "Assistir um filme com a namorada",
+    "time": "evening",
+    "status": "not_started"
+  },
+  {
+    "id": 6,
+    "title": "Dormir",
+    "description": "Dormir porque o homem não é de ferro",
+    "time": "evening",
+    "status": "not_started"
+  }
+]
+
+}
