@@ -41,13 +41,6 @@
       "description": "Dormir porque o homem não é de ferro",
       "time": "evening",
       "status": "not_started"
-    },
-    {
-      "id": "a05e3949-a133-499b-a3f8-80cc1ccb900d",
-      "title": "Teste",
-      "time": "morning",
-      "description": "Testando",
-      "status": "not_started"
     }
   ]
 }
