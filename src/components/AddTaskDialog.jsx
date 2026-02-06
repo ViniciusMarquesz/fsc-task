@@ -4,23 +4,32 @@ import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import { toast } from "sonner";
 import { v4 } from "uuid";
 
+import { LoaderIcon } from "../assets/icons";
 import Button from "./Button";
 import Input from "./Input";
 import TimeSelect from "./TimeSelect";
 
-const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
+const AddTaskDialog = ({
+  isOpen,
+  handleClose,
+  onSubmitSuccess,
+  onSubmitError,
+}) => {
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const nodeRef = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
   const timeRef = useRef();
 
-  const handleSaveClick = () => {
-    const newErrors = [];
+  const handleSaveClick = async () => {
+    setIsLoading(true);
 
+    const newErrors = [];
     const title = titleRef.current.value;
     const description = descriptionRef.current.value;
     const time = timeRef.current.value;
@@ -46,22 +55,36 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
       });
     }
 
+    if (!titleRef.current?.value.trim() || !time.trim() || !description) {
+      return toast.error("Preencha todos os campos obrigatórios!");
+    }
+
     setErrors(newErrors);
 
     if (newErrors.length > 0) {
-      return;
+      return setIsLoading(false);
     }
 
-    if (!titleRef.current?.value.trim() || !time.trim() || !description) {
-      return alert("Por favor, preencha todos os campos.");
-    }
-    handleSubmit({
+    const task = {
       id: v4(),
       title,
       time,
       description,
       status: "not_started",
+    };
+
+    const response = await fetch("http://localhost:3000/tasks", {
+      method: "POST",
+      body: JSON.stringify(task),
     });
+
+    if (!response.ok) {
+      setIsLoading(false);
+      return onSubmitError();
+    }
+
+    onSubmitSuccess(task);
+    setIsLoading(false);
     handleClose();
   };
 
@@ -127,7 +150,9 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
                     size="large"
                     className="w-full"
                     onClick={handleSaveClick}
+                    disabled={isLoading}
                   >
+                    {isLoading && <LoaderIcon className="animate-spin" />}
                     Salvar
                   </Button>
                 </div>
