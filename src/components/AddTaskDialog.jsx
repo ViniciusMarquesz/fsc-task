@@ -56,7 +56,7 @@ const AddTaskDialog = ({
     }
 
     if (!titleRef.current?.value.trim() || !time.trim() || !description) {
-      return toast.error("Preencha todos os campos obrigatórios!");
+      toast.error("Preencha todos os campos obrigatórios!");
     }
 
     setErrors(newErrors);
