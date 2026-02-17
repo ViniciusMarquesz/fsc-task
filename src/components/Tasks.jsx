@@ -35,13 +35,6 @@ const Tasks = () => {
 
   const eveningTasks = tasks?.filter((task) => task.time === "evening");
 
-  const onDeleteTaskSuccess = async (taskId) => {
-    queryClient.setQueryData("tasks", (currentTasks) => {
-      return currentTasks.filter((task) => task.id !== taskId);
-    });
-    toast.success("Tarefa removida com sucesso!");
-  };
-
   const handleTaskCheckboxClick = (taskId) => {
     // Lógica para lidar com o clique na checkbox da tarefa
     const newTasks = tasks.map((task) => {
@@ -69,17 +62,6 @@ const Tasks = () => {
     queryClient.setQueryData("tasks", newTasks);
   };
 
-  const onTaskSubmitSuccess = async (task) => {
-    queryClient.setQueryData("tasks", (currentTasks) => {
-      return [...currentTasks, task];
-    });
-    toast.success("Tarefa adicionada com sucesso!");
-  };
-
-  const onTaskSubmitError = () => {
-    toast.error("Erro ao adicionar tarefa!");
-  };
-
   return (
     <div className="w-full space-y-6 px-8 py-16">
       {/* TITULO E BOTOES */}
@@ -105,8 +87,6 @@ const Tasks = () => {
           <AddTaskDialog
             isOpen={addTaskDialogIsOpen}
             handleClose={() => setAddTaskDialogIsOpen(false)}
-            onSubmitSuccess={onTaskSubmitSuccess}
-            onSubmitError={onTaskSubmitError}
           />
         </div>
       </div>
@@ -125,7 +105,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -143,7 +122,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -161,7 +139,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
