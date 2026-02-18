@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
-import { useDeleteTask } from "../../data/use-delete-task";
 import { CheckIcon, DetailsIcon, LoaderIcon, TrashIcon } from "../assets/icons";
+import { useDeleteTask } from "../hooks/data/use-delete-task";
 import Button from "./Button";
 
 const TaskItem = ({ task, handleCheckboxClick }) => {

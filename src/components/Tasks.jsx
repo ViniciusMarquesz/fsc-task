@@ -2,7 +2,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import { useGetTasks } from "../../data/use-get-tasks";
 import {
   AddIcon,
   CloudeSunIcon,
@@ -10,6 +9,7 @@ import {
   SunIcon,
   TrashIcon,
 } from "../assets/icons";
+import { useGetTasks } from "../hooks/data/use-get-tasks";
 import AddTaskDialog from "./AddTaskDialog";
 import Button from "./Button";
 import TaskItem from "./TaskItem";
