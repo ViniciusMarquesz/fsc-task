@@ -8,6 +8,7 @@ import Button from "./Button";
 
 const TaskItem = ({ task, handleCheckboxClick }) => {
   const { mutate: deleteTask, isPending } = useDeleteTask(task.id);
+
   const handleDeleteClick = async () => {
     deleteTask(undefined, {
       onSuccess: () => {

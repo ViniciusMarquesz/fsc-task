@@ -17,7 +17,7 @@ import TasksSeparator from "./TasksSeparator";
 
 const Tasks = () => {
   const queryClient = useQueryClient();
-  const { data: tasks } = useGetTasks;
+  const { data: tasks } = useGetTasks();
 
   const [addTaskDialogIsOpen, setAddTaskDialogIsOpen] = useState(false);
 
@@ -51,7 +51,7 @@ const Tasks = () => {
 
       return task;
     });
-    queryClient.setQueryData("tasks", newTasks);
+    queryClient.setQueryData(["tasks"], newTasks);
   };
 
   return (

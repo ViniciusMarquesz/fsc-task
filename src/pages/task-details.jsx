@@ -60,7 +60,7 @@ const TaskDetailsPage = () => {
       if (!response.ok) {
         throw new Error();
       }
-      const deletedTask = response.json();
+      const deletedTask = await response.json();
       queryClient.setQueryData("tasks", (oldTasks) => {
         return oldTasks.filter((oldTask) => oldTask.id != deletedTask);
       });
@@ -75,6 +75,7 @@ const TaskDetailsPage = () => {
       });
       const data = await response.json();
       reset(data);
+      return data;
     },
   });
 
@@ -116,7 +117,7 @@ const TaskDetailsPage = () => {
             <div className="flex items-center gap-1 text-xs">
               <span
                 onClick={handleBackClick}
-                className="cursor-pointer text-brand-text-gray"
+                className="cursor-pointer text-brand-primary"
               >
                 Minhas tarefas
               </span>
