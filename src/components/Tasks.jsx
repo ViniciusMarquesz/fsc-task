@@ -10,6 +10,7 @@ import {
   TrashIcon,
 } from "../assets/icons";
 import { useGetTasks } from "../hooks/data/use-get-tasks";
+import { taskQueryKeys } from "../keys/queries";
 import AddTaskDialog from "./AddTaskDialog";
 import Button from "./Button";
 import TaskItem from "./TaskItem";
@@ -51,7 +52,7 @@ const Tasks = () => {
 
       return task;
     });
-    queryClient.setQueryData("tasks", newTasks);
+    queryClient.setQueryData(taskQueryKeys.getAll(), newTasks);
   };
 
   return (
