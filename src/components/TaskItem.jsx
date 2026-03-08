@@ -78,7 +78,6 @@ TaskItem.propTypes = {
     status: PropTypes.oneOf(["not_started", "in_progress", "done"]).isRequired,
   }).isRequired,
   handleCheckboxClick: PropTypes.func.isRequired,
-  handleDeleteClick: PropTypes.func.isRequired,
 };
 
 export default TaskItem;

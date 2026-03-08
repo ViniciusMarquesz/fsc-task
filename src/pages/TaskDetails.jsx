@@ -37,6 +37,8 @@ const TaskDetailsPage = () => {
     onSuccess: (task) => reset(task),
   });
 
+  console.log("TASK:", task);
+
   const handleBackClick = () => {
     navigate(-1);
   };
